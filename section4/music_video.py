@@ -14,10 +14,11 @@ def solution(n: int, m: int, music: List):
         return cnt
 
     lt, rt = 1, sum(music)
+    maxx = max(music)
     res = 0
     while lt <= rt:
         mid = (lt + rt) // 2
-        if count(mid, music) <= m:
+        if mid >= maxx and count(mid, music) <= m:
             res = mid
             rt = mid - 1
         else:
